@@ -23,8 +23,8 @@ from Model import EncoderRNN, DecoderRNN
 from Language import SOS_token,EOS_token
 
 
-MODELS_DIR = "../Models"
-MODEL_NAME = "model_test"
+MODELS_DIR = "../../Models"
+MODEL_NAME = "autoencoder"
 
 
 
@@ -33,7 +33,7 @@ MAX_LENGTH = 10
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-data = ds.ParallelSequenceDataset("eng-fra", max_len=MAX_LENGTH, device=device)
+data = ds.ParallelSequenceDataset("autoencoder_data", max_len=MAX_LENGTH, device=device)
 loader = DataLoader(data, batch_size=1, shuffle=True, num_workers=0)
 
 
@@ -174,7 +174,7 @@ def run_training(dataloader,encoder,decoder, num_epochs, print_every_percent=10,
 
 
 
-run_training(loader,enc,dec,1)
+run_training(loader,enc,dec,10)
 
 
 PATH = f"{MODELS_DIR}/{MODEL_NAME}.pth"

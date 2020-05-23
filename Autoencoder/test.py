@@ -26,8 +26,8 @@ from Language import SOS_token,EOS_token
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-MODELS_DIR = "../Models"
-MODEL_NAME = "model"
+MODELS_DIR = "../../Models"
+MODEL_NAME = "autoencoder"
 PATH = f"{MODELS_DIR}/{MODEL_NAME}.pth"
 checkpoint = torch.load(PATH)
 
